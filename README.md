@@ -11,6 +11,4 @@ Installation:
 <script type="text/javascript" async="" src="https://cdn.rawgit.com/reimertz/tableflip.js/master/dist/tableflip.min.js"></script>
 ```
 
-
-Inline-style: 
-![](https://cdn.rawgit.com/reimertz/tableflip.js/master/common/tableflip,gif "so much flip")
+![](https://rawgit.com/reimertz/tableflip.js/master/common/tableflip.gif "so much flip")
