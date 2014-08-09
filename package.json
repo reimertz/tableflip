@@ -1,0 +1,33 @@
+{
+  "name": "table-flip",
+  "version": "0.0.1",
+  "description": "TableFlip-enable your homepage!",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:reimertz/table-flip.git"
+  },
+  "keywords": [
+    "table",
+    "flip",
+    "table-flip",
+    "awesome"
+  ],
+  "author": "Piérre Reimertz",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp-minify-css": "~0.3.7",
+    "gulp-uglify": "~0.3.1",
+    "gulp": "~3.8.7",
+    "gulp-load-plugins": "~0.5.3",
+    "require-dir": "~0.1.0",
+    "gulp-notify": "~1.4.2",
+    "sass": "~0.5.0",
+    "gulp-sass": "~0.7.2",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-rename": "~1.2.0"
+  }
+}
