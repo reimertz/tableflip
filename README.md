@@ -1,4 +1,4 @@
-# TableFlip.js
+# tableflip.js
 
 ## (╯°□°）╯︵ ┻━┻ any homepage
 
@@ -7,5 +7,10 @@ Install TableFlip.js and let your users flip it and then tell you whats wrong.
 
 Installation:
 
-  <script type="text/javascript" async="" src="https://cdn.rawgit.com/reimertz/tableflip.js/master/dist/tableflip.min.js"></script>
-  
+```javascript
+<script type="text/javascript" async="" src="https://cdn.rawgit.com/reimertz/tableflip.js/master/dist/tableflip.min.js"></script>
+```
+
+
+Inline-style: 
+![](https://cdn.rawgit.com/reimertz/tableflip.js/master/common/tableflip,gif "so much flip")

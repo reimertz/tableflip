@@ -52,7 +52,7 @@
       if (htmlTag) {
 
         var link = document.createElement("link");
-        link.href =  (location.protocol == 'https:') ? location.protocol : 'http:' + _settings.cssLocation;
+        link.href =  ((location.protocol == 'https:') ? location.protocol : 'http:') + _settings.cssLocation;
         link.type = "text/css";
         link.rel = "stylesheet";
 
