@@ -3,41 +3,16 @@
 
 var gulp = require('gulp'),
     g = require('gulp-load-plugins')({lazy: false}),
-    requireDir = require('require-dir'),
-    path = require('path'),
-    config = require('./package'),
-    notify = require("gulp-notify");
+    noop = g.util.noop,
+    requireDir = require('require-dir');
 
-// Add a task to render the output
+requireDir('./gulptasks');
+
 gulp.task('help', g.taskListing);
+gulp.task('build', ['styles-dev', 'js-dev']);
+gulp.task('serve', ['watch', 'connect'], noop);
+gulp.task('live-dev', ['build', 'serve'], noop);
 
-/**
- * Default task
- */
+gulp.task('dist', ['styles-dist', 'js-dist']);
 
-gulp.task('build', ['styles', 'compress']);
-
-gulp.task('styles', function () {
-  gulp.src(['src/styles/tableflip.scss'])
-    .pipe(g.sass())
-    .on('error', notify.onError("<%= error.message%>"))
-    .pipe(g.autoprefixer("last 1 version", "> 1%", "ie 8", "ie 7"))
-    .pipe(g.minifyCss())
-    .pipe(g.rename('tableflip.min.css'))
-    .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('compress', function() {
-  gulp.src('src/index.js')
-    .pipe(g.uglify())
-    .pipe(g.rename('tableflip.min.js'))
-    .pipe(gulp.dest('dist/'))
-});
-
-/**
- * All CSS files as a stream
- */
-function cssFiles (opt) {
-  return gulp.src('./.build/css/**/*.css', opt);
-}
 

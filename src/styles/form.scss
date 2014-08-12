@@ -1,0 +1,117 @@
+#table-flip {
+  .form {
+    position: relative;
+    font-size: 0;
+    opacity: 0;
+    display: none;
+    transition: 500ms;
+    height: 0;
+  }
+}
+
+#table-flip[class*="2"] {
+
+  &.valid-email input {
+    color: rgb(0, 255, 173) !important;
+  }
+  &.valid-email.has-message:not(.fail) button:last-of-type {
+    opacity: 1;
+    cursor: pointer;
+    background: $yellow;
+    color: black;
+    
+    &:hover {
+      color: white;
+    }
+  }
+      
+  .form {
+    display: inline-block;
+    position: relative;
+    height: auto;
+    opacity: 1;
+
+    .message {
+      background: $blue;
+      letter-spacing: 2px;
+      padding: 10px;
+      line-height: 30px;
+      text-align: center;
+      font-size: 17px;
+    }
+
+    .email input, .u_message textarea {
+      margin: 0;
+      letter-spacing: 2px;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .email {
+      background: $turquoise;
+    
+      input {
+        color: rgb(255, 131, 131);
+
+        &:focus { 
+          background: darken($turquoise, 10);
+        }
+      }
+    }
+
+    .u_message {
+      background: $orange;
+      
+
+      textarea:focus { 
+        background: darken($orange, 40);
+      }
+    }
+
+    input, textarea, button {
+      &:focus {
+        outline-width: 0;
+      }
+    }
+
+    input, textarea {
+      resize: none;
+      font-size: 16px;
+      width: 100%;
+      color: white;
+      text-align: center;
+      border: none;
+      background:transparent;
+
+      & { @include placeholder {
+        color: white;
+        letter-spacing: 2px;
+      }}
+    }
+
+    button {
+      margin: 0;
+      transition: 200ms;
+      border: none;
+      text-transform: uppercase;
+      width: 50%;
+      padding: 15px 0px;
+      font-weight: 700;
+      color: white;
+
+      &:first-of-type {
+        cursor: pointer;
+        background: black;
+        &:hover {
+          color: $yellow;
+        }
+      }
+
+      &:last-of-type {
+        opacity: 0.5;
+        background: $yellow;
+        color: black;
+      }
+    }
+  }
+}

@@ -1,24 +1,140 @@
-@keyframes bodyTableFlip {
+//right top
+@keyframes bodyTableFlipTopRight {
   0% {
-    transform-origin: right bottom;
+    transform-origin: left bottom;
+    animation-timing-function: ease-in-out;
     opacity: 1;
   }
 
   100% {
+    background-color: black;
+    transform-origin: left bottom;
+    transform: rotate3d(0, 0, -1, 90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bodyTableReverseFlipTopRight {
+  0% {
+    background-color: black;
+    transform-origin: left bottom;
+    transform: rotate3d(0, 0, -1, 90deg);
+    opacity: 0;
+  }
+  100% {
+    transform-origin: left bottom;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+}
+
+//left top
+@keyframes bodyTableFlipTop {
+  0% {
+    transform-origin: right bottom;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+
+  100% {
+    background-color: black;
     transform-origin: right bottom;
     transform: rotate3d(0, 0, 1, 90deg);
     opacity: 0;
   }
 }
 
-@keyframes discoBackground {
+@keyframes bodyTableReverseFlipTop {
   0% {
-    background-color: red;
-  } 25% {
-    background-color: green;
-  } 50% {
-    background-color: white;
-  } 75% {
-    background-color: pink;
+    background-color: black;
+    transform-origin: right bottom;
+    transform: rotate3d(0, 0, 1, 90deg);
+    opacity: 0;
+  }
+  100% {
+    transform-origin: right bottom;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
   }
 }
+
+
+//right bottom
+@keyframes bodyTableFlipRight {
+  0% {
+    transform-origin: left top;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+
+  100% {
+    background-color: black;
+    transform-origin: left top;
+    transform: rotate3d(0, 0, -1, 90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bodyTableReverseFlipRight {
+  0% {
+    background-color: black;
+    transform-origin: left top;
+    transform: rotate3d(0, 0, -1, 90deg);
+    opacity: 0;
+  }
+  100% {
+    transform-origin: left top;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+}
+
+//left bottom
+@keyframes bodyTableFlip {
+  0% {
+    transform-origin: right top;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+
+  100% {
+    background-color: black;
+    transform-origin: right top;
+    transform: rotate3d(0, 0, 1, 90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bodyTableReverseFlip {
+  0% {
+    background-color: black;
+    transform-origin: right top;
+    transform: rotate3d(0, 0, 1, 90deg);
+    opacity: 0;
+  }
+  100% {
+    transform-origin: right top;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+}
+
+@keyframes disco {
+  0% {
+    color: black;
+  } 50% {
+    color: white;
+  } 100% {
+    color: black;
+  } 
+} 
+
+@keyframes discoTwo {
+  0% {
+    color: black;
+  } 50% {
+    color: white;
+  } 100% {
+    color: black;
+  } 
+} 

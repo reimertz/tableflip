@@ -1,0 +1,163 @@
+@import "_variables";
+@import "_mixins";
+@import "keyframes";
+@import "form";
+
+
+.do-flip {
+  overflow: hidden;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-name: bodyTableFlip;
+  .tp-right & {
+    animation-name: bodyTableFlipRight;  
+  }
+  .tp-top & {
+    animation-name: bodyTableFlipTop;  
+  }
+  .tp-right.tp-top & {
+    animation-name: bodyTableFlipTopRight;  
+  }
+}
+
+.reverse-flip {
+  overflow: hidden;
+  animation-duration: .50s;
+  animation-fill-mode: forwards;
+  animation-name: bodyTableReverseFlip;  
+  .tp-right & {
+    animation-name: bodyTableReverseFlipRight;  
+  }
+  .tp-top & {
+    animation-name: bodyTableReverseFlipTop;  
+  }
+  .tp-right.tp-top & {
+    animation-name: bodyTableReverseFlipTopRight;  
+  }
+}
+
+.table-flip-wrapper {
+  padding: 10px;
+  .tp-right & {
+    text-align: right;
+  }
+}
+
+.table-flip-wrapper {
+  .tp-top & #table-flip {
+    top: 0;
+    bottom: initial;
+    
+    &[class*="2"] {
+      top:initial;
+      bottom: 50%;
+    }
+  }
+
+  .tp-right & #table-flip {
+    right: 0;
+    left: initial;
+    
+    &[class*="2"] {
+      right: 50%;
+      left: initial;
+    }
+  }
+
+  .tp-medium & #table-flip {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .tp-large & #table-flip {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+
+  #table-flip {
+    border-radius: 5px;
+    user-select: none;
+    display: inline-block;
+    color: white;
+    background: black;
+    left: 0;
+    bottom: 0;
+    font-family: helvetica;
+    font-size: 12px;
+    vertical-align: middle;
+    padding: 6px;
+    position: relative;
+    z-index: 1337;
+    transition: all 300ms;
+
+    .done {
+
+    }
+
+    .fail {
+      
+    }
+
+    & a {
+      display: none;
+      opacity: 0;
+      margin-top: 10px;
+      width: 100%;
+      text-align: left;
+      position: relative;
+      font-size: 10px;
+      color: white;
+      text-decoration: none;
+    }  
+
+    &:hover {
+      color: $pink;
+    }
+
+    .text {
+      cursor: pointer;
+    }
+
+    &[class*="0"] face {
+      color: green;
+    }
+
+    &[class*="1"] face {
+      color: orange;
+    }
+
+    &[class*="2"] {
+      color: white;
+      font-size: 25px;
+      transition: all 300ms;
+      position:fixed;
+      z-index: 100;  
+      top:50%;  
+      left:50%;
+      margin: -240px -140px -200px -140px;
+      width: 250px;
+      height: 420px;
+
+      a {
+        opacity: 1;
+        color: white;
+        display: inline-block;
+      }
+
+      &.fail .text {  
+        animation: none;
+
+      }
+      .text {
+        animation-duration: 0.15s;
+        animation-iteration-count: 10;
+        animation-name: disco;
+        background: $pink;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+      }
+    }
+  }
+}

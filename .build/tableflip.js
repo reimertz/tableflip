@@ -28,7 +28,7 @@
   _settings = {
     initialState : 0,
     tagId : 'table-flip',
-    cssLocation: '<%= cssLocation %>'
+    cssLocation: 'tableflip.css'
   };
 
   function handleClick(event) {
@@ -149,7 +149,7 @@
 
   function initVisualz(){
     var link = document.createElement("link");
-    link.href =  <%= protocol %> _settings.cssLocation;
+    link.href =   _settings.cssLocation;
     link.type = "text/css";
     link.rel = "stylesheet";
 
