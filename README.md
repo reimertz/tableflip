@@ -15,7 +15,7 @@ Usage:
     position="top left"
     email="pierre@pierrereimertz.com"
     message="Im sorry you flipped out. What did I do to break your heart?" 
-    src="http://rawgit.com/reimertz/tableflip.co/release/dist/tableflip.min.js">
+    src="http://cdn.rawgit.com/reimertz/tableflip.co/release/dist/tableflip.min.js">
   </script>
 ```
 
