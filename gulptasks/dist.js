@@ -4,7 +4,8 @@
 var gulp = require('gulp'),
     g = require('gulp-load-plugins')({lazy: false}),
     dist = {
-      cssLocation: '//rawgit.com/reimertz/tableflipco/master/dist/tableflip.min.css',
+      cssLocation: '//rawgit.com/reimertz/tableflipco/release/dist/tableflip.min.css',
+      mailServer: 'mailserver.tableflip.co',
       protocol : '((location.protocol == \'https:\') ? location.protocol : \'http:\') + '
     };
 
