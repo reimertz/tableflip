@@ -215,18 +215,15 @@
   };
 
   var tableFlip = {
-    init: function () {
-      if(!html) throw new Error("Error loading TableFlip.js: Could not append to <HMTL>.'");
-      if(!script) throw new Error("Error loading TableFlip.js attributes..'");
+    init: function (options) {
+      _settings.position = script.getAttribute('position') || options.settings || '';
+      _settings.size = script.getAttribute('size') || options.size ||'';
+      _settings.message = script.getAttribute('message') || options.message|| null;
 
-      _settings.position = script.getAttribute('position') || '';
-      _settings.size = script.getAttribute('size') || '';
-      _settings.message = script.getAttribute('message') || null;
-
-      _data.toEmail = script.getAttribute('email');
+      _data.toEmail = script.getAttribute('email') || options.email;
       if(!validEmail(_data.toEmail)) throw new Error("tableflip.co Error: No Valid email!");
 
-      _data.authKey = script.getAttribute('auth-key') || '';
+      _data.authKey = script.getAttribute('auth-key') || options.authKey || '';
       if(!_data.authKey) throw new Error("tableflip.co Error: No authKey!");
 
       _data.url = location.href;
