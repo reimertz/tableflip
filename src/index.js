@@ -51,7 +51,7 @@
 
   function sendMail(data) {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '<%= mailServer %>/sendmail', true);
+    xhr.open('POST', '<%= protocol %><%= mailServer %>/sendmail', true);
     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
     // send the collected data as JSON
