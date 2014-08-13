@@ -13,6 +13,6 @@ gulp.task('build', ['styles-dev', 'js-dev']);
 gulp.task('serve', ['watch', 'connect'], noop);
 gulp.task('live-dev', ['build', 'serve'], noop);
 
-gulp.task('dist', ['styles-dist', 'js-dist']);
+gulp.task('dist', ['build', 'styles-dist', 'js-dist']);
 
 

@@ -4,6 +4,8 @@
 var gulp = require('gulp'),
     g = require('gulp-load-plugins')({lazy: false});
 
+gulp.task('clean', ['clean-css', 'clean-js']);
+
 gulp.task('clean-css', function () {
   return gulp.src('.build/**.css', { read: false })
     .pipe(g.rimraf());
