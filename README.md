@@ -7,7 +7,7 @@ Install TableFlip.js and let your users flip it and then tell you whats wrong.
 
 Usage:
 
-```javascript
+```html
   <script 
     type="text/javascript" 
     size="small"
@@ -15,9 +15,25 @@ Usage:
     position="top left"
     email="pierre@pierrereimertz.com"
     message="Im sorry you flipped out. What did I do to break your heart?" 
-    src="http://cdn.rawgit.com/reimertz/tableflip.co/release/dist/tableflip.min.js">
+    src="http://tableflip.co/cdn/tableflipco/tableflip.min.js">
   </script>
 ```
+
+```html
+  <script src="http://reimertz.co/cdn/tableflipco/tableflip.min.js"></script>
+```
+
+```javascript
+tableFlip.init({
+  size:"small",
+  key:"untilauthisimplemented",
+  position:"top right",
+  email:"pierre+tableflip@pierrereimertz.com",
+  message:"Im sorry you flipped out. What did I do to break your heart?" 
+});
+```
+
+
 
 size=["small","medium","large"]
 

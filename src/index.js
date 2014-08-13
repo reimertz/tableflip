@@ -2,21 +2,15 @@
   'use strict';
 
   var _state = 0,
-  _states = [{
-    'text': '<face>(°□°)</face> ┬─┬'
-  },{
-    'text': '<face>(╯°□°)</face> ┬─┬'
-  },{
-    'text': '<face>(╯°□°)╯</face> ︵ ┻━┻'
-  },{
-    'text': 'Sending..'
-  },{
-    'text': 'Sent!'
-  },{
-    'text': 'Server error!'
-  },{
-    'text': 'Wrong Auth key!'
-  }],
+  _states = [
+    '<face>(°□°)</face> ┬─┬',
+    '<face>(╯°□°)</face> ┬─┬',
+    '<face>(╯°□°)╯</face> ︵ ┻━┻',
+    'Sending..',
+    'Sent!',
+    'Server error!',
+    'Wrong Auth key!',
+  ],
   _listeners = [],
   _tpDiv,
   _tpWrapper,
@@ -25,19 +19,18 @@
   _hasMessage = false,
   _validEmail = false,
   _data = {},
-  _settings = {
-    initialState : 0,
+  _defaults = { 
     tagId : 'table-flip',
     cssLocation: '<%= cssLocation %>'
   };
 
-  function handleClick(event) {
+  function handleClick() {
     _state++;
-    if(_state > 2 ) {return;}
-    if(_state === 2) { doFlip(); }
+    if(_state > 2 ) return;
+    if(_state === 2) doFlip();
 
     updateClassses(_state);
-    setText(_states[_state].text);      
+    setText(_states[_state]);      
   }
 
   function onSubmit() {
@@ -57,7 +50,7 @@
     // send the collected data as JSON
     xhr.send(JSON.stringify(data));
 
-    setText(_states[3].text);
+    setText(_states[3]);
 
     xhr.onloadend = function (res) {
       if (res.target.status === 200) return onDone();
@@ -68,7 +61,7 @@
   }
 
   function onDone() {
-    setText(_states[4].text);
+    setText(_states[4]);
     setTimeout(function(){
       onCancel();
     },4500);
@@ -79,7 +72,7 @@
     setTimeout(function(){
       _tpDiv.classList.remove('fail');
     },100);
-    setText(_states[6].text);
+    setText(_states[6]);
   }
 
   function onFail() {
@@ -87,7 +80,7 @@
     setTimeout(function(){
       _tpDiv.classList.remove('fail');
     },100);
-    setText(_states[5].text);
+    setText(_states[5]);
   }
 
   function onCancel() {
@@ -104,7 +97,7 @@
     _emailInput.value = '';
     _messageInput.value = '';
     updateClassses(_state);
-    setText(_states[_state].text);      
+    setText(_states[_state]);      
   }
 
   function initListeners(){
@@ -112,7 +105,7 @@
       getElementsByClassName('text')[0].addEventListener('click', function(event) {
         event.stopPropagation();
 
-        handleClick(event);
+        handleClick();
       }));
 
     _listeners.push(_tpDiv.
@@ -149,28 +142,28 @@
 
   function initVisualz(){
     var link = document.createElement("link");
-    link.href =  <%= protocol %> _settings.cssLocation;
+    link.href =  <%= protocol %> _defaults.cssLocation;
     link.type = "text/css";
     link.rel = "stylesheet";
 
     document.getElementsByTagName("head")[0].appendChild(link);
 
     var wrapper = document.createElement('div');
-    wrapper.innerHTML = getContainer(_settings.initialState);  
+    wrapper.innerHTML = getContainer();  
 
-    (_settings.position.indexOf('top') > -1) 
+    (_defaults.position.indexOf('top') > -1) 
       ? (html.insertBefore(wrapper.firstChild, html.firstChild) 
         && html.classList.add('tp-top')) 
       : html.insertBefore(wrapper.firstChild, html.nextSibling);
 
-    _tpDiv = document.getElementById(_settings.tagId);
-    _tpWrapper = document.getElementById(_settings.tagId).parentNode;
+    _tpDiv = document.getElementById(_defaults.tagId);
+    _tpWrapper = document.getElementById(_defaults.tagId).parentNode;
     _emailInput = document.getElementById('u_email');
     _messageInput = document.getElementById('u_message');
 
-    if (_settings.position.indexOf('right') > -1) html.classList.add('tp-right');
-    if (_settings.size.indexOf('large') > -1) html.classList.add('tp-large');
-    if (_settings.size.indexOf('medium') > -1) html.classList.add('tp-medium');
+    if (_defaults.position.indexOf('right') > -1) html.classList.add('tp-right');
+    if (_defaults.size.indexOf('large') > -1) html.classList.add('tp-large');
+    if (_defaults.size.indexOf('medium') > -1) html.classList.add('tp-medium');
   }
 
   function doFlip() {
@@ -187,27 +180,25 @@
       .getElementsByClassName('text')[0].innerHTML = text;
   }
 
-  function getContainer(s) {
-    if (s.length > _states.length) return;
-
-    if (_settings.message) {
-      var message = (_settings.message.length > 65) 
-        ?  _settings.message.substring(0, 63) + '..'
-        :  _settings.message;
+  function getContainer() {
+    if (_defaults.message) {
+      var message = (_defaults.message.length > 65) 
+        ?  _defaults.message.substring(0, 63) + '..'
+        :  _defaults.message;
     } 
     else {
       var message = 'Ouch, you table flipped the homepage. Let them know why!';
     }
 
     return  '<div class="table-flip-wrapper">' +
-              '<div id="table-flip" class="' + s + '">' +
-                '<div class="text">' + _states[s].text + '</div>' +
+              '<div id="table-flip" class="0">' +
+                '<div class="text">' + _states[0] + '</div>' +
                 '<div class="form">' +
                   '<div class="message">' + message + '</div>'+
-                  '<div class="u_message"><textarea id="u_message" rows="4" placeholder="Enter your message"></textarea></div>' +
+                  '<div class="u_message"><textarea id="u_message" rows="4" placeholder="Why you flipped?"></textarea></div>' +
                   '<div class="email"><input type="email" id="u_email" placeholder="Enter your email"></div>'+
-                  '<button type="submit">Cancel</button>' +
-                  '<button type="submit">Send</button>' +
+                  '<button>Cancel</button>' +
+                  '<button>Send</button>' +
                 '</div>'+
                 '<a href="http://tableflip.co" target="_blank">tableflip.co</a>'+
               '</div>' + 
@@ -216,15 +207,18 @@
 
   var tableFlip = {
     init: function (options) {
-      _settings.position = script.getAttribute('position') || options.settings || '';
-      _settings.size = script.getAttribute('size') || options.size ||'';
-      _settings.message = script.getAttribute('message') || options.message|| null;
+      if(!html || !body) return new Error("tableflip.co Error: Could not append itself.");
+      if(!options) return new Error("tableflip.co Error: init() neeed options argument.");
 
-      _data.toEmail = script.getAttribute('email') || options.email;
-      if(!validEmail(_data.toEmail)) throw new Error("tableflip.co Error: No Valid email!");
+      _defaults.position = options.position  || '';
+      _defaults.size =  options.size || '';
+      _defaults.message = options.message || null;
 
-      _data.authKey = script.getAttribute('auth-key') || options.authKey || '';
-      if(!_data.authKey) throw new Error("tableflip.co Error: No authKey!");
+      _data.toEmail = options.email || '';
+      if(!validEmail(_data.toEmail)) return new Error("tableflip.co Error: No Valid email!");
+
+      _data.authKey =  options.key;
+      if(!_data.authKey) return new Error("tableflip.co Error: No authKey!");
 
       _data.url = location.href;
 
@@ -234,7 +228,16 @@
   }
   
   exports.tableFlip = tableFlip;
-  exports.tableFlip.init();
+  
+  if(script) {
+    var o = {};
+    Array.prototype.slice.call(script.attributes).forEach(function(item){
+      return o[item.name] = item.value;
+    })
+
+    if(o.email && o.key)
+      exports.tableFlip.init( o);
+  } 
 
 })(window, document.getElementsByTagName("html")[0], document.getElementsByTagName('body')[0], document.currentScript);
 

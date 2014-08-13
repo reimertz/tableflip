@@ -25,7 +25,7 @@ gulp.task('watch', function () {
 
   // Initiate livereload server:
   gulp.watch([
-    'tests/index.html',
+    'tests/*.html',
     '.build/*.css',
     '.build/*.js'
   ]).on('change', function (file) {
