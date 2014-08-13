@@ -1,4 +1,4 @@
-# tableflip.co
+# tableflip
 
 ## (╯°□°）╯︵ ┻━┻ any homepage
 
@@ -6,6 +6,9 @@ Want to give your users the ability to table flip if your shit is broken?
 Install TableFlip.js and let your users flip it and then tell you whats wrong.
 
 Usage:
+
+Either you just include the script and add the proper attributes and the
+script will auto launch.
 
 ```html
   <script 
@@ -15,13 +18,17 @@ Usage:
     position="top left"
     email="pierre@pierrereimertz.com"
     message="Im sorry you flipped out. What did I do to break your heart?" 
-    src="http://tableflip.co/cdn/tableflipco/tableflip.min.js">
+    src="http://tableflip.co/dist/tableflip.min.js">
   </script>
 ```
 
+Or, if you prefer to initiate it yourself, just include the script as normal.
+
 ```html
-  <script src="http://reimertz.co/cdn/tableflipco/tableflip.min.js"></script>
+  <script src="http://tableflip.co/dist/tableflip.min.js"></script>
 ```
+
+And then initiate it by calling tableFlip.init(options);
 
 ```javascript
 tableFlip.init({
@@ -32,18 +39,6 @@ tableFlip.init({
   message:"Im sorry you flipped out. What did I do to break your heart?" 
 });
 ```
-
-
-
-size=["small","medium","large"]
-
-auth-key=["untilauthisimplemented"] //fixed for now..
-
-position=["left", "right", "bottom", "right"] //"left bottom" is default
-
-email=["address@wheremessagegetsent.to"]
-
-message=["A personal message from you"] //Optional, max-length is 65 characters.
 
 
 ![](https://rawgit.com/reimertz/tableflip.js/master/common/tableflip.gif "so much flip")
