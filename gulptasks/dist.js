@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     dist = {      
       cssLocation: '//cdn.tableflip.co/dist/tableflip.min.css',
       mailServer: '//mailserver.tableflip.co',
-      protocol : '((location.protocol == \'https:\') ? 'location.protocol' : \'http:\') + '
+      protocol : '((location.protocol == \'https:\') ? location.protocol : \'http:\') + '
     };
 
 gulp.task('styles-dist', ['clean'], function () {
