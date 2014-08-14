@@ -24,7 +24,7 @@ gulp.task('js-dist', function() {
     .pipe(g.template(dist))
     .pipe(g.uglify({preserveComments:'some'}))
     .pipe(g.rename('tableflip.min.js'))
-    .pipe(g.gzip({ append: false }))
+    .pipe(g.gzip())
     .pipe(gulp.dest('dist/'));
 
   gulp.src('src/index.js')
