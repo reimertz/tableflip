@@ -4,7 +4,7 @@
 var gulp = require('gulp'),
     g = require('gulp-load-plugins')({lazy: false}),
     dist = {      
-      cssLocation: '//cdn.tableflip.co/dist/tableflip.min.css',
+      cssLocation: '//reimertz.github.io/tableflip/dist/tableflip.min.css',
       mailServer: '//mailserver.tableflip.co',
       protocol : '((location.protocol == \'https:\') ? location.protocol : \'http:\') + '
     };
@@ -22,7 +22,19 @@ gulp.task('styles-dist', ['clean'], function () {
 gulp.task('js-dist', function() {
   gulp.src('src/index.js')
     .pipe(g.template(dist))
-    .pipe(g.uglify())
+    .pipe(g.uglify({preserveComments:'some'}))
     .pipe(g.rename('tableflip.min.js'))
+    .pipe(g.gzip({ append: false }))
+    .pipe(gulp.dest('dist/'));
+
+  gulp.src('src/index.js')
+    .pipe(g.template(dist))
+    .pipe(g.uglify({preserveComments:'some'}))
+    .pipe(g.rename('tableflip.min.js'))
+    .pipe(gulp.dest('dist/'));
+
+  gulp.src('src/index.js')
+    .pipe(g.template(dist))
+    .pipe(g.rename('tableflip.js'))
     .pipe(gulp.dest('dist/'));
 });

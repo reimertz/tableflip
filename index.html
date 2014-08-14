@@ -13,22 +13,25 @@
     color: white;
   } 
 
+  a {
+    color: inherit;
+    text-transform: none;
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+  }
 
-@media (max-width: 600px) {
-  body { font-size: 16px; }
-}
+  @media (max-width: 500px) {
+    body { font-size: 14px; }
+  }
 
-@media (max-width: 500px) {
-  body { font-size: 14px; }
-}
+  @media (max-width: 400px) {
+    body { font-size: 12px; }
+  }
 
-@media (max-width: 400px) {
-  body { font-size: 12px; }
-}
-
-@media (max-width: 300px) {
-  body { font-size: 12px; }
-}
+  @media (max-width: 300px) {
+    body { font-size: 12px; }
+  }
 
   h1 {
     color: white;
@@ -107,6 +110,10 @@
   section.try-it-out{
     margin-top: 4rem;    
   }
+
+  section.prod {
+    margin-top: 4rem;    
+  }
   
   section.flip-out {
     margin-top: 0rem;    
@@ -148,10 +155,10 @@
   position="bottom left"
   email="pierrereimertz+tableflip@gmail.com"
   message="Im sorry you flipped out and that I broke your heart."
-  src="http://tableflip.co/dist/tableflip.min.js">&lt;/script></h3>
+  src="tableflip.min.js">&lt;/script></h3>
   
   <h2>or initiate whenever you want</h2>
-  <h3>&lt;script src="http://tableflip.co/dist/tableflip.min.js">&lt;/script></h3>
+  <h3>&lt;script src="tableflip.min.js">&lt;/script></h3>
   <h3>+</h3>
   <h3>
     tableFlip.init({size : "large",
@@ -162,8 +169,19 @@
   </h3>
 </section>
 
+<section class="prod pink-bg">
+  <a href="//reimertz.github.com/tableflip/dist/tableflip.min.js">
+    <h2>Production version (0.0.1)</h2>
+  </a>
+</section>
+<section class="dev pink">
+  <a href="//reimertz.github.com/tableflip/dist/tableflip.js">
+    <h2>Development version (0.0.1)</h2>
+  </a>
+</section>
+
 <section class="try-it-out blue-bg">
-<h2>Wanna try it out? Scroll to the bottom</h2>
+<h2>Want to see it in action? Scroll to the bottom</h2>
   <h1>Y</h1>
   <h1>O</h1>
   <h1>U</h1>

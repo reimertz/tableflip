@@ -1,3 +1,10 @@
+/* 
+* @preserve tableflip.js 0.0.1
+* http://tableflip.co
+* (c) 2014 Pierre Reimertz
+* may be freely distributed under the MIT license.
+*/
+
 (function(exports, html, body, script){
   'use strict';
 
