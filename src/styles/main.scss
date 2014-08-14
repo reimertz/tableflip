@@ -3,39 +3,6 @@
 @import "keyframes";
 @import "form";
 
-
-.do-flip {
-  animation-duration: .5s;
-  animation-fill-mode: forwards;
-  animation-name: bodyTableFlip;
-  overflow: hidden;
-  .tp-right & {
-    animation-name: bodyTableFlipRight;  
-  }
-  .tp-top & {
-    animation-name: bodyTableFlipTop;  
-  }
-  .tp-right.tp-top & {
-    animation-name: bodyTableFlipTopRight;  
-  }
-}
-
-.reverse-flip {
-  animation-duration: .50s;
-  animation-fill-mode: forwards;
-  animation-name: bodyTableReverseFlip;  
-  overflow: hidden;
-  .tp-right & {
-    animation-name: bodyTableReverseFlipRight;  
-  }
-  .tp-top & {
-    animation-name: bodyTableReverseFlipTop;  
-  }
-  .tp-right.tp-top & {
-    animation-name: bodyTableReverseFlipTopRight;  
-  }
-}
-
 .table-flip-wrapper {
   padding: 10px;
   .tp-right & {
@@ -130,7 +97,7 @@
     &[class*="2"] {
       color: white;
       font-size: 25px;
-      height: 420px;
+      height: 470px;
       left:50%;
       margin: -240px -140px -200px -140px;
       position:fixed;
