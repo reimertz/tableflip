@@ -4,12 +4,33 @@
 @import "form";
 
 .tf-wrapper {
-  position: relative;
+  position: absolute;
   z-index: 1337;
-  padding: 10px;
+  left: 15px;
+  margin-top: -35px;
+
   .tf-right & {
-    text-align: right;
+    left: inherit;
+    right: 15px;
   }
+
+  .tf-top & {
+    top: 15px;
+  }
+
+  .tf-top.tf-large &,
+  .tf-top.tf-medium & {
+    margin-top: 0;
+  }
+
+  .tf-large & {
+    margin-top: -55px;
+  }
+
+  .tf-medium & {
+    margin-top: -45px;
+  }
+
 }
 
 .tf-wrapper {
@@ -88,11 +109,11 @@
     }
 
     &[class*="0"] face {
-      color: green;
+      color: $blue;
     }
 
     &[class*="1"] face {
-      color: orange;
+      color: $orange;
     }
 
     &[class*="2"] {
