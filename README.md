@@ -14,12 +14,12 @@ so tableflip will ask for it.
 
 Either include the smart script that self-initiate
 ```html
-<script type="text/javascript" size="large" key="untilauthisimplemented" position="bottom left" email="pierrereimertz+tableflip@gmail.com" message="Im sorry you flipped out and that I broke your heart." src="http://tableflip.co/dist/tableflip.min.js"></script>
+<script size="large" key="untilauthisimplemented" position="bottom left" email="pierrereimertz+tableflip@gmail.com" message="Im sorry you flipped out and that I broke your heart." src="http://cdn.tableflip.co/dist/tableflip.min.js" type="text/javascript"></script>
 ```
 
 or initiate whenever you want
 ```html
-<script src="http://tableflip.co/dist/tableflip.min.js"></script>
+<script src="http://cdn.tableflip.co/dist/tableflip.min.js" type="text/javascript"></script>
 ```
 +
 ```javascript
