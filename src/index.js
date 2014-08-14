@@ -234,12 +234,9 @@
     Array.prototype.slice.call(script.attributes).forEach(function(item){
       o[item.name] = item.value;
     })
-    console.log('asdamda,mdn,amdsasd');
-    console.log(o);
     if(o.email && o.key) exports.tableFlip.init(o);
   } 
-  console.log('asdamda,mdn,amdsasd 2222');
-
+  
 })(window, document.getElementsByTagName("html")[0], document.getElementsByTagName('body')[0], document.currentScript);
 
 
