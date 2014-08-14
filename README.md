@@ -14,7 +14,7 @@ script will auto launch.
   <script 
     type="text/javascript" 
     size="small"
-    auth-key="untilauthisimplemented"
+    key="untilauthisimplemented"
     position="top left"
     email="pierre@pierrereimertz.com"
     message="Im sorry you flipped out. What did I do to break your heart?" 

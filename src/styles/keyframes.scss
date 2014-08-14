@@ -1,60 +1,92 @@
+.do-flip {
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-name: bodyTableFlip;
+  overflow: hidden;
+  .tp-right & {
+    animation-name: bodyTableFlipRight;  
+  }
+  .tp-top & {
+    animation-name: bodyTableFlipTop;  
+  }
+  .tp-right.tp-top & {
+    animation-name: bodyTableFlipTopRight;  
+  }
+}
+
+.reverse-flip {
+  animation-duration: .50s;
+  animation-fill-mode: forwards;
+  animation-name: bodyTableReverseFlip;  
+  overflow: hidden;
+  .tp-right & {
+    animation-name: bodyTableReverseFlipRight;  
+  }
+  .tp-top & {
+    animation-name: bodyTableReverseFlipTop;  
+  }
+  .tp-right.tp-top & {
+    animation-name: bodyTableReverseFlipTopRight;  
+  }
+}
+
 //right top
 @keyframes bodyTableFlipTopRight {
   0% {
-    transform-origin: left bottom;
     animation-timing-function: ease-in-out;
     opacity: 1;
+    transform-origin: left bottom;
   }
 
   100% {
     background-color: black;
+    opacity: 0;
     transform-origin: left bottom;
     transform: rotate3d(0, 0, -1, 90deg);
-    opacity: 0;
   }
 }
 
 @keyframes bodyTableReverseFlipTopRight {
   0% {
     background-color: black;
+    opacity: 0;
     transform-origin: left bottom;
     transform: rotate3d(0, 0, -1, 90deg);
-    opacity: 0;
   }
   100% {
-    transform-origin: left bottom;
     animation-timing-function: ease-in-out;
     opacity: 1;
+    transform-origin: left bottom;
   }
 }
 
 //left top
 @keyframes bodyTableFlipTop {
   0% {
-    transform-origin: right bottom;
     animation-timing-function: ease-in-out;
     opacity: 1;
+    transform-origin: right bottom;
   }
 
   100% {
     background-color: black;
+    opacity: 0;
     transform-origin: right bottom;
     transform: rotate3d(0, 0, 1, 90deg);
-    opacity: 0;
   }
 }
 
 @keyframes bodyTableReverseFlipTop {
   0% {
     background-color: black;
+    opacity: 0;
     transform-origin: right bottom;
     transform: rotate3d(0, 0, 1, 90deg);
-    opacity: 0;
   }
   100% {
-    transform-origin: right bottom;
     animation-timing-function: ease-in-out;
     opacity: 1;
+    transform-origin: right bottom;
   }
 }
 
@@ -62,60 +94,60 @@
 //right bottom
 @keyframes bodyTableFlipRight {
   0% {
-    transform-origin: left top;
     animation-timing-function: ease-in-out;
     opacity: 1;
+    transform-origin: left top;
   }
 
   100% {
     background-color: black;
+    opacity: 0;
     transform-origin: left top;
     transform: rotate3d(0, 0, -1, 90deg);
-    opacity: 0;
   }
 }
 
 @keyframes bodyTableReverseFlipRight {
   0% {
     background-color: black;
+    opacity: 0;
     transform-origin: left top;
     transform: rotate3d(0, 0, -1, 90deg);
-    opacity: 0;
   }
   100% {
-    transform-origin: left top;
     animation-timing-function: ease-in-out;
     opacity: 1;
+    transform-origin: left top;
   }
 }
 
 //left bottom
 @keyframes bodyTableFlip {
   0% {
-    transform-origin: right top;
     animation-timing-function: ease-in-out;
     opacity: 1;
+    transform-origin: right top;
   }
 
   100% {
     background-color: black;
+    opacity: 0;
     transform-origin: right top;
     transform: rotate3d(0, 0, 1, 90deg);
-    opacity: 0;
   }
 }
 
 @keyframes bodyTableReverseFlip {
   0% {
     background-color: black;
+    opacity: 0;
     transform-origin: right top;
     transform: rotate3d(0, 0, 1, 90deg);
-    opacity: 0;
   }
   100% {
-    transform-origin: right top;
     animation-timing-function: ease-in-out;
     opacity: 1;
+    transform-origin: right top;
   }
 }
 

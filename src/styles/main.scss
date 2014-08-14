@@ -5,10 +5,10 @@
 
 
 .do-flip {
-  overflow: hidden;
   animation-duration: .5s;
   animation-fill-mode: forwards;
   animation-name: bodyTableFlip;
+  overflow: hidden;
   .tp-right & {
     animation-name: bodyTableFlipRight;  
   }
@@ -21,10 +21,10 @@
 }
 
 .reverse-flip {
-  overflow: hidden;
   animation-duration: .50s;
   animation-fill-mode: forwards;
   animation-name: bodyTableReverseFlip;  
+  overflow: hidden;
   .tp-right & {
     animation-name: bodyTableReverseFlipRight;  
   }
@@ -45,22 +45,22 @@
 
 .table-flip-wrapper {
   .tp-top & #table-flip {
-    top: 0;
     bottom: initial;
+    top: 0;
     
     &[class*="2"] {
-      top:initial;
       bottom: 50%;
+      top:initial;
     }
   }
 
   .tp-right & #table-flip {
-    right: 0;
     left: initial;
+    right: 0;
     
     &[class*="2"] {
-      right: 50%;
       left: initial;
+      right: 50%;
     }
   }
 
@@ -76,20 +76,20 @@
 
 
   #table-flip {
-    border-radius: 5px;
-    user-select: none;
-    display: inline-block;
-    color: white;
     background: black;
-    left: 0;
+    border-radius: 5px;
     bottom: 0;
+    color: white;
+    display: inline-block;
     font-family: helvetica;
     font-size: 12px;
-    vertical-align: middle;
+    left: 0;
     padding: 6px;
     position: relative;
-    z-index: 1337;
     transition: all 300ms;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1337;
 
     .done {
 
@@ -100,15 +100,15 @@
     }
 
     & a {
-      display: none;
-      opacity: 0;
-      margin-top: 10px;
-      width: 100%;
-      text-align: left;
-      position: relative;
-      font-size: 10px;
       color: white;
+      display: none;
+      font-size: 10px;
+      margin-top: 10px;
+      opacity: 0;
+      position: relative;
+      text-align: left;
       text-decoration: none;
+      width: 100%;
     }  
 
     &:hover {
@@ -130,14 +130,14 @@
     &[class*="2"] {
       color: white;
       font-size: 25px;
-      transition: all 300ms;
-      position:fixed;
-      z-index: 100;  
-      top:50%;  
+      height: 420px;
       left:50%;
       margin: -240px -140px -200px -140px;
+      position:fixed;
+      top:50%;  
+      transition: all 300ms;
       width: 250px;
-      height: 420px;
+      z-index: 100;  
 
       a {
         opacity: 1;

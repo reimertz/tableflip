@@ -9,10 +9,10 @@ gulp.task('connect', function () {
     var app = connect()
         .use(require('connect-livereload')({ port: 35729 }))
         .use(connect.static('.build'))
+        .use(connect.static('dist'))
         .use(connect.static('common'))
         .use(connect.static('tests'))
-        .use(connect.directory('tests'));
-
+        .use(connect.static('./'))
     require('http').createServer(app)
         .listen(9000)
         .on('listening', function () {
@@ -25,6 +25,7 @@ gulp.task('watch', function () {
 
   // Initiate livereload server:
   gulp.watch([
+    'index.html',
     'tests/*.html',
     '.build/*.css',
     '.build/*.js'
