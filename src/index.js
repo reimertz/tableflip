@@ -20,7 +20,7 @@
   _validEmail = false,
   _data = {},
   _defaults = { 
-    tagId : 'table-flip',
+    tagId : 'tf',
     cssLocation: '<%= cssLocation %>'
   };
 
@@ -84,11 +84,11 @@
   }
 
   function onCancel() {
-    body.classList.remove('do-flip');
-    body.classList.add('reverse-flip');
+    html.classList.remove('do-flip');
+    html.classList.add('reverse-flip');
 
     setTimeout(function(){
-      body.classList.remove('reverse-flip');
+      html.classList.remove('reverse-flip');
     },1000);
 
     _tpDiv.classList.remove(_state);
@@ -153,21 +153,23 @@
 
     (_defaults.position.indexOf('top') > -1) 
       ? (html.insertBefore(wrapper.firstChild, html.firstChild) 
-        && html.classList.add('tp-top')) 
+        && html.classList.add('tf-top')) 
       : html.insertBefore(wrapper.firstChild, html.nextSibling);
+
+    html.insertBefore(wrapper.lastChild, html.nextSibling);
 
     _tpDiv = document.getElementById(_defaults.tagId);
     _tpWrapper = document.getElementById(_defaults.tagId).parentNode;
     _emailInput = document.getElementById('u_email');
     _messageInput = document.getElementById('u_message');
 
-    if (_defaults.position.indexOf('right') > -1) html.classList.add('tp-right');
-    if (_defaults.size.indexOf('large') > -1) html.classList.add('tp-large');
-    if (_defaults.size.indexOf('medium') > -1) html.classList.add('tp-medium');
+    if (_defaults.position.indexOf('right') > -1) html.classList.add('tf-right');
+    if (_defaults.size.indexOf('large') > -1) html.classList.add('tf-large');
+    if (_defaults.size.indexOf('medium') > -1) html.classList.add('tf-medium');
   }
 
   function doFlip() {
-    body.classList.add('do-flip');
+    html.classList.add('do-flip');
   }
 
   function updateClassses(s) {
@@ -190,8 +192,8 @@
       var message = 'Ouch, you table flipped the homepage. Let them know why!';
     }
 
-    return  '<div class="table-flip-wrapper">' +
-              '<div id="table-flip" class="0">' +
+    return  '<div class="tf-wrapper">' +
+              '<div id="tf" class="0">' +
                 '<div class="text">' + _states[0] + '</div>' +
                 '<div class="form">' +
                   '<div class="message">' + message + '</div>'+
@@ -202,23 +204,23 @@
                 '</div>'+
                 '<a href="http://tableflip.co" target="_blank">tableflip.co</a>'+
               '</div>' + 
-            '</div>';
+            '</div><div class="tf-overlay">(╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ </div>';
   };
 
   var tableFlip = {
     init: function (options) {
-      if(!html || !body) return new Error("tableflip.co Error: Could not append itself.");
-      if(!options) return new Error("tableflip.co Error: init() neeed options argument.");
+      if(!html || !body) return new Error("tableflip.js Error: Could not append itself.");
+      if(!options) return new Error("tableflip.js Error: init() neeed options argument.");
 
       _defaults.position = options.position  || '';
       _defaults.size =  options.size || '';
       _defaults.message = options.message || null;
 
       _data.toEmail = options.email || '';
-      if(!validEmail(_data.toEmail)) return new Error("tableflip.co Error: No Valid email!");
+      if(!validEmail(_data.toEmail)) return new Error("tableflip.js Error: No Valid email!");
 
       _data.authKey =  options.key;
-      if(!_data.authKey) return new Error("tableflip.co Error: No authKey!");
+      if(!_data.authKey) return new Error("tableflip.js Error: No authKey!");
 
       _data.url = location.href;
 
@@ -236,7 +238,7 @@
     })
     if(o.email && o.key) exports.tableFlip.init(o);
   } 
-  
+
 })(window, document.getElementsByTagName("html")[0], document.getElementsByTagName('body')[0], document.currentScript);
 
 

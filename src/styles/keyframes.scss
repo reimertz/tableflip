@@ -1,37 +1,96 @@
-.do-flip, 
-.reverse-flip {
+.do-flip body, 
+.reverse-flip body {
   animation-duration: .50s;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  overflow: hidden;
+  animation-timing-function: ease-in;
 }
 
+.reverse-flip body {
+  animation-duration: .50s;
+  animation-timing-function: ease-out;
+}
+
+.tf-overlay {
+  background: black;
+  bottom: 0;
+  color: rgba($pink, 0.2);
+  font-size: 0;
+  height: 0;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  text-align: center;
+  transition: all .50s;
+  width: 0;
+  z-index: 1336;
+}
+
+.do-flip .tf-overlay {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  font-size: 5em;
+}
+      
+.tf-overlay {
+  .tf-top & {
+    bottom: inherit;
+    top: 0;
+  }
+  .tf-right & {
+    left: inherit;
+    right: 0;  
+  }
+}
+
+
 .do-flip {
-  animation-name: bodyTableFlip;
-  .tp-right & {
-    animation-name: bodyTableFlipRight;  
+  body {
+    animation-name: bodyTableFlip;  
+  }    
+
+  &.tf-top {
+    body {
+      animation-name: bodyTableFlipTop;  
+    }
   }
-  .tp-top & {
-    animation-name: bodyTableFlipTop;  
+
+  &.tf-right {
+    body {
+      animation-name: bodyTableFlipRight;
+    }
   }
-  .tp-right.tp-top & {
-    animation-name: bodyTableFlipTopRight;  
+
+  &.tf-right.tf-top {
+    body {
+      animation-name: bodyTableFlipTopRight;
+    }
   }
 }
 
 .reverse-flip {
-  animation-name: bodyTableReverseFlip;  
-  .tp-right & {
-    animation-name: bodyTableReverseFlipRight;  
+  body {
+    animation-name: bodyTableReverseFlip;  
+  }    
+  
+  &.tf-top {
+    body {
+      animation-name: bodyTableFlipReverseTop;  
+    }
   }
-  .tp-top & {
-    animation-name: bodyTableReverseFlipTop;  
+
+  &.tf-right {
+    body {
+      animation-name: bodyTableReverseFlipRight;
+    }
   }
-  .tp-right.tp-top & {
-    animation-name: bodyTableReverseFlipTopRight;  
+
+  &.tf-right.tf-top {
+    body {
+      animation-name: bodyTableReverseFlipTopRight;
+    }
   }
 }
-
 //right top
 @keyframes bodyTableFlipTopRight {
   0% {
@@ -40,7 +99,6 @@
   }
 
   100% {
-    background-color: black;
     opacity: 0;
     transform-origin: right bottom;
     transform: rotate3d(0, 0, -1, 90deg);
@@ -49,7 +107,6 @@
 
 @keyframes bodyTableReverseFlipTopRight {
   0% {
-    background-color: black;
     opacity: 0;
     transform-origin: right bottom;
     transform: rotate3d(0, 0, -1, 90deg);
@@ -68,16 +125,14 @@
   }
 
   100% {
-    background-color: black;
     opacity: 0;
     transform-origin: left bottom;
     transform: rotate3d(0, 0, 1, 90deg);
   }
 }
 
-@keyframes bodyTableReverseFlipTop {
+@keyframes bodyTableFlipReverseTop {
   0% {
-    background-color: black;
     opacity: 0;
     transform-origin: left bottom;
     transform: rotate3d(0, 0, 1, 90deg);
@@ -93,40 +148,37 @@
 @keyframes bodyTableFlipRight {
   0% {
     opacity: 1;
-    transform-origin: left top;
+    transform-origin: left bottom;
   }
 
   100% {
-    background-color: black;
     opacity: 0;
-    transform-origin: left top;
-    transform: rotate3d(0, 0, 1, 90deg);
+    transform-origin: left bottom;
+    transform: rotate3d(0, 0, -1, 90deg);
   }
 }
 
 @keyframes bodyTableReverseFlipRight {
   0% {
-    background-color: black;
     opacity: 0;
-    transform-origin: left top;
-    transform: rotate3d(0, 0, 1, 90deg);
+    transform-origin: left bottom;
+    transform: rotate3d(0, 0, -1, 90deg);
   }
   100% {
     opacity: 1;
-    transform-origin: left top;
+    transform-origin: left bottom;
   }
 }
 
 //left bottom
 @keyframes bodyTableFlip {
   0% {
-    background-color: initial;
+    background-color: inherit;
     opacity: 1;
     transform-origin: right bottom;
   }
 
   100% {
-    background-color: black;
     opacity: 0;
     transform-origin: right bottom;
     transform: rotate3d(0, 0, 1, 90deg);
@@ -135,13 +187,12 @@
 
 @keyframes bodyTableReverseFlip {
   0% {
-    background-color: black;
     opacity: 0;
     transform-origin: right bottom;
     transform: rotate3d(0, 0, 1, 90deg);
   }
   100% {
-    background-color: initial;
+    background-color: inherit;
     opacity: 1;
     transform-origin: right bottom;
   }
@@ -149,20 +200,10 @@
 
 @keyframes disco {
   0% {
-    color: black;
+    color: $pink;
   } 50% {
     color: white;
   } 100% {
-    color: black;
-  } 
-} 
-
-@keyframes discoTwo {
-  0% {
-    color: black;
-  } 50% {
-    color: white;
-  } 100% {
-    color: black;
+    color: $pink;
   } 
 } 

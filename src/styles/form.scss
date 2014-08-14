@@ -1,4 +1,4 @@
-#table-flip {
+#tf {
   .form {
     display: none;
     font-size: 0;
@@ -9,7 +9,7 @@
   }
 }
 
-#table-flip[class*="2"] {
+#tf[class*="2"] {
 
   &.valid-email input {
     color: rgb(0, 255, 173) !important;

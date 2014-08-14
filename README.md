@@ -1,44 +1,50 @@
-# tableflip
+# (╯°□°)╯ tableflip
 
-## (╯°□°）╯︵ ┻━┻ any homepage
+## let them flip out, and then ask why
 
-Want to give your users the ability to table flip if your shit is broken?
-Install TableFlip.js and let your users flip it and then tell you whats wrong.
+tableflip makes a homepage flippable
+and lets angry visitors (╯°□°)╯ ︵ ┻━┻
+if something is broken.
 
-Usage:
+But a (╯°□°)╯ ︵ ┻━┻ would be
+kind of useless without feedback
+so tableflip will ask for it.
 
-Either you just include the script and add the proper attributes and the
-script will auto launch.
+## Usage
 
+Either include the smart script that self-initiate
 ```html
-  <script 
-    type="text/javascript" 
-    size="small"
-    key="untilauthisimplemented"
-    position="top left"
-    email="pierre@pierrereimertz.com"
-    message="Im sorry you flipped out. What did I do to break your heart?" 
-    src="http://tableflip.co/dist/tableflip.min.js">
-  </script>
+<script type="text/javascript" size="large" key="untilauthisimplemented" position="bottom left" email="pierrereimertz+tableflip@gmail.com" message="Im sorry you flipped out and that I broke your heart." src="http://tableflip.co/dist/tableflip.min.js"></script>
 ```
 
-Or, if you prefer to initiate it yourself, just include the script as normal.
-
+or initiate whenever you want
 ```html
-  <script src="http://tableflip.co/dist/tableflip.min.js"></script>
+<script src="http://tableflip.co/dist/tableflip.min.js"></script>
 ```
-
-And then initiate it by calling tableFlip.init(options);
-
++
 ```javascript
-tableFlip.init({
-  size:"small",
-  key:"untilauthisimplemented",
-  position:"top right",
-  email:"pierre+tableflip@pierrereimertz.com",
-  message:"Im sorry you flipped out. What did I do to break your heart?" 
-});
+tableFlip.init({size : "large", key : "untilauthisimplemented", position : "bottom left", email : "pierrereimertz+tableflip@gmail.com", message="Im sorry you flipped out and that I broke your heart."});
 ```
 
+## API
 
-![](https://rawgit.com/reimertz/tableflip.js/master/common/tableflip.gif "so much flip")
+### size: "small|medium|large"
+
+### position: "left|right|top|bottom"
+
+### email: "pierrereimertz+tableflip@gmail.com"
+This is the email that messages will get sent to, and yes, + is allowed
+
+### message: "Im sorry you flipped.."
+If you want, you can add a personal message to the user. It has to be less that 65 characters.
+
+### key: "untilauthisimplemented"
+Im about to implement a auth service to protect both you and me, but at the
+momement, the only key allowed is "untilauthisimplemented"
+
+## Demo
+
+www.tableflip.co
+
+
+
