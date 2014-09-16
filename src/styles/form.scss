@@ -9,7 +9,7 @@
   }
 }
 
-#tf[class*="2"] {
+#tf[class*="1"] {
 
   &.valid-email input {
     color: rgb(0, 255, 173) !important;
@@ -30,6 +30,7 @@
     height: auto;
     opacity: 1;
     position: relative;
+    width: 100%;
 
     .message {
       background: $blue;

@@ -9,10 +9,10 @@ var gulp = require('gulp'),
 requireDir('./gulptasks');
 
 gulp.task('help', g.taskListing);
-gulp.task('build', ['styles-dev', 'js-dev']);
+gulp.task('build', ['js-dev']);
 gulp.task('serve', ['watch', 'connect'], noop);
 gulp.task('live-dev', ['build', 'serve'], noop);
 
-gulp.task('dist', ['build', 'styles-dist', 'js-dist']);
+gulp.task('dist', ['build', 'js-dist']);
 
 

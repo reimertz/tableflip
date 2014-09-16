@@ -1,16 +1,24 @@
 /* 
-* @preserve tableflip.js 0.0.1
+* @preserve tableflip.js {{ version }}
 * http://tableflip.co
 * (c) 2014 Pierre Reimertz
 * may be freely distributed under the MIT license.
 */
+
+{% if dev %}
+  {% set css = "../.build/tableflip.oneline.css" %}
+  {% set skeleton = "../.build/tableflip.skeleton.html" %}
+{% else %}
+  {% set css = "../dist/latest/tableflip.latest.min.css" %}
+  {% set skeleton = "../dist/latest/skeleton.latest.html" %}
+{% endif %}
+
 
 (function(exports, html, body, script){
   'use strict';
 
   var _state = 0,
   _states = [
-    '<face>(°□°)</face> ┬─┬',
     '<face>(╯°□°)</face> ┬─┬',
     '<face>(╯°□°)╯</face> ︵ ┻━┻',
     'Sending..',
@@ -27,14 +35,13 @@
   _validEmail = false,
   _data = {},
   _defaults = { 
-    tagId : 'tf',
-    cssLocation: '<%= cssLocation %>'
+    tagId : 'tf'
   };
 
   function handleClick() {
     _state++;
-    if(_state > 2 ) return;
-    if(_state === 2) doFlip();
+    if(_state > 1 ) return;
+    if(_state === 1) doFlip();
 
     updateClassses(_state);
     setText(_states[_state]);      
@@ -51,7 +58,7 @@
 
   function sendMail(data) {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', <%= protocol %>'<%= mailServer %>/sendmail', true);
+    xhr.open('POST', {{ protocol }}'{{ mailServer }}/sendmail', true);
     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
     // send the collected data as JSON
@@ -146,14 +153,14 @@
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
-
+  
   function initVisualz(){
-    var link = document.createElement("link");
-    link.href =  <%= protocol %> _defaults.cssLocation;
-    link.type = "text/css";
-    link.rel = "stylesheet";
+    var style = document.createElement("style");
+    style.innerHTML = '{% include css %}';
+    style.type = "text/css";
+    style.rel = "stylesheet";
 
-    document.getElementsByTagName("head")[0].appendChild(link);
+    document.getElementsByTagName("head")[0].appendChild(style);
 
     var wrapper = document.createElement('div');
     wrapper.innerHTML = getContainer();  
@@ -198,20 +205,7 @@
     else {
       var message = 'Ouch, you table flipped the homepage. Let them know why!';
     }
-
-    return  '<div class="tf-wrapper">' +
-              '<div id="tf" class="0">' +
-                '<div class="text">' + _states[0] + '</div>' +
-                '<div class="form">' +
-                  '<div class="message">' + message + '</div>'+
-                  '<div class="u_message"><textarea id="u_message" rows="4" placeholder="Why you flipped?"></textarea></div>' +
-                  '<div class="email"><input type="email" id="u_email" placeholder="Enter your email"></div>'+
-                  '<button>Cancel</button>' +
-                  '<button>Send</button>' +
-                '</div>'+
-                '<a href="http://tableflip.co" target="_blank">tableflip.co</a>'+
-              '</div>' + 
-            '</div><div class="tf-overlay">(╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ (╯°□°)╯ </div>';
+    return '{% include skeleton %}';
   };
 
   var tableFlip = {
@@ -237,15 +231,19 @@
   }
   
   exports.tableFlip = tableFlip;
+  var currentScript = document.currentScript || (function() {
+    var scripts = document.getElementsByTagName('script');
+    return scripts[scripts.length - 1];
+  })();
   
-  if(script) {
+  if(currentScript) {
     var o = {};
-    Array.prototype.slice.call(script.attributes).forEach(function(item){
+    Array.prototype.slice.call(currentScript.attributes).forEach(function(item){
       o[item.name] = item.value;
     })
     if(o.email && o.key) exports.tableFlip.init(o);
   } 
 
-})(window, document.getElementsByTagName("html")[0], document.getElementsByTagName('body')[0], document.currentScript);
+})(window, document.getElementsByTagName("html")[0], document.getElementsByTagName('body')[0]);
 
 

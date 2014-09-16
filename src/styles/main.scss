@@ -13,7 +13,15 @@
   position: absolute;
   z-index: 1337;
   left: 15px;
-  margin-top: -35px;
+  margin-top: -35px !important;
+
+  @media (max-width: 600px) {
+    & {
+      margin-top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+    }
+  }
 
   .tf-right & {
     left: inherit;
@@ -22,6 +30,7 @@
 
   .tf-top & {
     top: 15px;
+    margin-top: -10px!important;
   }
 
   .tf-top.tf-large &,
@@ -54,7 +63,7 @@
     left: initial;
     right: 0;
     
-    &[class*="2"] {
+    &[class*="1"] {
       left: initial;
       right: 50%;
     }
@@ -85,13 +94,22 @@
     transition: all 300ms;
     user-select: none;
     vertical-align: middle;
+    
+    @media (max-width: 600px) {
+      & {
+        width: 100%;
+        border-radius: 0;
+        padding: 20px 0;
+        text-align: center;
+      }
 
-    .done {
+      .tf-medium & {
+        font-size: 20px;
+      }
 
-    }
-
-    .fail {
-      
+      .tf-large & {
+        font-size: 25px;
+      }
     }
 
     & a {
@@ -118,11 +136,8 @@
       color: $blue;
     }
 
-    &[class*="1"] face {
-      color: $orange;
-    }
 
-    &[class*="2"] {
+    &[class*="1"] {
       color: white;
       font-size: 25px;
       height: 470px;

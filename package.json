@@ -46,6 +46,8 @@
     "gulp-util": "~3.0.0",
     "gulp-template": "~1.0.0",
     "gulp-rimraf": "~0.1.0",
-    "gulp-gzip": "0.0.8"
+    "gulp-gzip": "0.0.8",
+    "gulp-data": "~1.0.2",
+    "gulp-minify-html": "~0.1.4"
   }
 }

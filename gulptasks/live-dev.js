@@ -27,7 +27,6 @@ gulp.task('watch', function () {
   gulp.watch([
     'index.html',
     'tests/*.html',
-    '.build/*.css',
     '.build/*.js'
   ]).on('change', function (file) {
       g.livereload.changed(file.path);

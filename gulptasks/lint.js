@@ -30,9 +30,9 @@ gulp.task('jslint', function () {
 */
 gulp.task('csslint', ['styles-dev'], function () {
   return gulp.src('.build/*.css')
-    .pipe(g.cached('csslint'))
     .pipe(g.csslint('./.csslintrc'))
-    .pipe(g.csslint.reporter());
+    .pipe(g.csslint.reporter())
+    .pipe(g.cached('csslint'));
 });
 
 /**

@@ -6,6 +6,11 @@ var gulp = require('gulp'),
 
 gulp.task('clean', ['clean-css', 'clean-js']);
 
+gulp.task('clean-html', function () {
+  return gulp.src('.build/**.html', { read: false })
+    .pipe(g.rimraf());
+});
+
 gulp.task('clean-css', function () {
   return gulp.src('.build/**.css', { read: false })
     .pipe(g.rimraf());
