@@ -20,6 +20,17 @@
       margin-top: 0 !important;
       left: 0 !important;
       right: 0 !important;
+      position: relative;
+    }
+
+
+    .tf-top & {
+      margin-top: 0 !important;
+      top:0 !important;
+    }
+    .tf-top & {
+      margin-top: 0 !important;
+      bottom:0 !important;
     }
   }
 

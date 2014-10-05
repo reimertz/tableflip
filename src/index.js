@@ -13,7 +13,6 @@
   {% set skeleton = "../dist/latest/skeleton.latest.html" %}
 {% endif %}
 
-
 (function(exports, html, body, script){
   'use strict';
 
@@ -64,7 +63,7 @@
     // send the collected data as JSON
     xhr.send(JSON.stringify(data));
 
-    setText(_states[3]);
+    setText(_states[2]);
 
     xhr.onloadend = function (res) {
       if (res.target.status === 200) return onDone();
@@ -75,7 +74,7 @@
   }
 
   function onDone() {
-    setText(_states[4]);
+    setText(_states[3]);
     setTimeout(function(){
       onCancel();
     },4500);
@@ -86,7 +85,7 @@
     setTimeout(function(){
       _tpDiv.classList.remove('fail');
     },100);
-    setText(_states[6]);
+    setText(_states[5]);
   }
 
   function onFail() {
@@ -94,7 +93,7 @@
     setTimeout(function(){
       _tpDiv.classList.remove('fail');
     },100);
-    setText(_states[5]);
+    setText(_states[4]);
   }
 
   function onCancel() {
@@ -116,8 +115,8 @@
 
   function initListeners(){
     _listeners.push(_tpDiv.
-      getElementsByClassName('text')[0].addEventListener('click', function(event) {
-        event.stopPropagation();
+      getElementsByClassName('text')[0].addEventListener('click', function(e) {
+        e.stopPropagation();
 
         handleClick();
       }));

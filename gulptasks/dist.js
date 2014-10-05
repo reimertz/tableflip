@@ -43,13 +43,13 @@ gulp.task('js-dist',['styles-dist','html-dist'], function() {
     .pipe(swig())
     .pipe(g.rename('tableflip.latest.js'))
     .pipe(gulp.dest('dist/latest/'))
-    .pipe(g.uglify({preserveComments:'some'}))
-    .pipe(g.rename('tableflip.latest.min.js'))
-    .pipe(gulp.dest('dist/latest/'))
     .pipe(g.rename('tableflip.' + version + '.js'))
     .pipe(gulp.dest('dist/'+ version + '/'))
     .pipe(g.uglify({preserveComments:'some'}))
     .pipe(g.rename('tableflip.' + version + '.min.js'))
     .pipe(gulp.dest('dist/'+ version + '/'))
+    .pipe(g.uglify({preserveComments:'some'}))
+    .pipe(g.rename('tableflip.latest.min.js'))
+    .pipe(gulp.dest('dist/latest/'))
     .pipe(g.cached('built-dist-js'));
 });
